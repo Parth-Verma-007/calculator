@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CALC ARCADE — Insert Coin to Continue</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- 90s SEGA-style arcade poster background -->
+  <svg class="poster" viewBox="0 0 800 1200" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#0a0030"/>
+        <stop offset=".30" stop-color="#3a0a78"/>
+        <stop offset=".48" stop-color="#a8128a"/>
+        <stop offset=".60" stop-color="#ff158b"/>
+        <stop offset=".68" stop-color="#ff6a00"/>
+        <stop offset=".72" stop-color="#080020"/>
+      </linearGradient>
+      <linearGradient id="sun" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#ffec5c"/>
+        <stop offset=".5" stop-color="#ff8a1f"/>
+        <stop offset="1" stop-color="#ff158b"/>
+      </linearGradient>
+      <radialGradient id="sunglow" cx=".5" cy=".5" r=".7">
+        <stop offset="0" stop-color="#ffec5c" stop-opacity=".6"/>
+        <stop offset="1" stop-color="#ff158b" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+
+    <!-- Sky / sunset -->
+    <rect width="800" height="1200" fill="url(#sky)"/>
+
+    <!-- Sun glow -->
+    <circle cx="400" cy="780" r="380" fill="url(#sunglow)"/>
+
+    <!-- Stars -->
+    <g fill="#fff">
+      <circle cx="60"  cy="80"  r="1.5"/>
+      <circle cx="160" cy="40"  r="1"/>
+      <circle cx="240" cy="130" r="1.2"/>
+      <circle cx="330" cy="60"  r="1"/>
+      <circle cx="420" cy="120" r="1.5"/>
+      <circle cx="510" cy="40"  r="1"/>
+      <circle cx="590" cy="160" r="1.2"/>
+      <circle cx="680" cy="70"  r="1.5"/>
+      <circle cx="740" cy="200" r="1"/>
+      <circle cx="100" cy="240" r="1"/>
+      <circle cx="710" cy="320" r="1"/>
+    </g>
+
+    <!-- Big chrome-y CALC text -->
+    <text x="400" y="200" text-anchor="middle"
+          font-family="Impact, 'Arial Black', sans-serif"
+          font-size="150" font-weight="900"
+          fill="#00f0ff" opacity=".18" letter-spacing="10">CALC</text>
+    <text x="400" y="200" text-anchor="middle"
+          font-family="Impact, 'Arial Black', sans-serif"
+          font-size="150" font-weight="900"
+          fill="none" stroke="#ff158b" stroke-width="2"
+          opacity=".45" letter-spacing="10">CALC</text>
+    <text x="400" y="260" text-anchor="middle"
+          font-family="Impact, 'Arial Black', sans-serif"
+          font-size="36" font-weight="800"
+          fill="#ffd60a" opacity=".7" letter-spacing="14">ARCADE 1990</text>
+
+    <!-- Zigzag pattern below header text -->
+    <polyline points="100,310 140,295 180,310 220,295 260,310 300,295 340,310 380,295 420,310 460,295 500,310 540,295 580,310 620,295 660,310 700,310"
+              fill="none" stroke="#00f0ff" stroke-width="3" opacity=".7"/>
+
+    <!-- Sun disc -->
+    <circle cx="400" cy="780" r="220" fill="url(#sun)"/>
+    <!-- Sun horizontal stripes (Out Run signature) -->
+    <g fill="#0a0030">
+      <rect x="180" y="700"  width="440" height="5"/>
+      <rect x="180" y="725"  width="440" height="6"/>
+      <rect x="180" y="755"  width="440" height="7"/>
+      <rect x="180" y="795"  width="440" height="8"/>
+      <rect x="180" y="845"  width="440" height="9"/>
+    </g>
+
+    <!-- Ground -->
+    <rect y="864" width="800" height="336" fill="#080020"/>
+
+    <!-- Horizon glow line -->
+    <rect y="861" width="800" height="3" fill="#ff158b"/>
+    <rect y="858" width="800" height="1" fill="#fff" opacity=".6"/>
+
+    <!-- Perspective grid vanishing lines -->
+    <g stroke="#00f0ff" stroke-width="1.5" opacity=".65">
+      <line x1="400" y1="864" x2="-300" y2="1300"/>
+      <line x1="400" y1="864" x2="-100" y2="1300"/>
+      <line x1="400" y1="864" x2="80"   y2="1300"/>
+      <line x1="400" y1="864" x2="240"  y2="1300"/>
+      <line x1="400" y1="864" x2="400"  y2="1300"/>
+      <line x1="400" y1="864" x2="560"  y2="1300"/>
+      <line x1="400" y1="864" x2="720"  y2="1300"/>
+      <line x1="400" y1="864" x2="900"  y2="1300"/>
+      <line x1="400" y1="864" x2="1100" y2="1300"/>
+    </g>
+    <!-- Horizontal floor grid -->
+    <g stroke="#00f0ff" stroke-width="1.5" opacity=".55">
+      <line x1="0" y1="895"  x2="800" y2="895"/>
+      <line x1="0" y1="935"  x2="800" y2="935"/>
+      <line x1="0" y1="990"  x2="800" y2="990"/>
+      <line x1="0" y1="1060" x2="800" y2="1060"/>
+      <line x1="0" y1="1140" x2="800" y2="1140"/>
+    </g>
+
+    <!-- Palm tree silhouettes -->
+    <g fill="#000">
+      <rect x="50" y="760" width="8" height="200"/>
+      <path d="M54,760 C30,740 5,725 -5,720 C25,755 45,760 54,760 Z"/>
+      <path d="M54,760 C75,740 110,720 130,718 C90,755 65,762 54,760 Z"/>
+      <path d="M54,760 C30,775 -5,790 -15,805 C30,775 50,765 54,760 Z"/>
+      <path d="M54,760 C75,775 115,790 135,810 C90,775 60,762 54,760 Z"/>
+
+      <rect x="744" y="760" width="8" height="200"/>
+      <path d="M748,760 C770,740 800,720 815,718 C780,755 758,762 748,760 Z"/>
+      <path d="M748,760 C720,740 690,725 680,720 C720,755 740,762 748,760 Z"/>
+      <path d="M748,760 C770,775 805,790 815,805 C775,778 752,762 748,760 Z"/>
+      <path d="M748,760 C720,775 685,790 670,810 C715,778 738,762 748,760 Z"/>
+    </g>
+  </svg>
+
+  <div class="device">
+    <div class="device-shell">
+      <header class="device-header">
+        <div class="brand-line">
+          <h1 class="brand">CALC<span>+</span></h1>
+          <div class="led-pwr" title="POWER"></div>
+        </div>
+        <div class="brand-badge">ARCADE GEAR &mdash; MODEL CG-1990</div>
+      </header>
+
+      <nav class="mode-tabs">
+        <button class="mode-btn active" data-mode="standard">STD</button>
+        <button class="mode-btn" data-mode="scientific">SCI</button>
+        <button class="mode-btn" data-mode="unit">UNIT</button>
+        <button class="mode-btn" data-mode="currency">CUR</button>
+        <button class="mode-btn" data-mode="programmer">PROG</button>
+        <button class="mode-btn" data-mode="datetime">DATE</button>
+      </nav>
+
+      <main class="device-stage">
+      <!-- STANDARD -->
+      <section class="panel active" id="panel-standard">
+        <div class="display">
+          <div class="display-expr" id="std-expr"></div>
+          <div class="display-main" id="std-display">0</div>
+          <div class="memory-indicator" id="std-mem-ind"></div>
+        </div>
+        <div class="keys keys-standard">
+          <button class="key fn" data-action="mc">MC</button>
+          <button class="key fn" data-action="mr">MR</button>
+          <button class="key fn" data-action="mplus">M+</button>
+          <button class="key fn" data-action="mminus">M-</button>
+
+          <button class="key op" data-action="clear">C</button>
+          <button class="key op" data-action="ce">CE</button>
+          <button class="key op" data-action="back">&#9003;</button>
+          <button class="key op" data-op="/">&divide;</button>
+
+          <button class="key num" data-num="7">7</button>
+          <button class="key num" data-num="8">8</button>
+          <button class="key num" data-num="9">9</button>
+          <button class="key op" data-op="*">&times;</button>
+
+          <button class="key num" data-num="4">4</button>
+          <button class="key num" data-num="5">5</button>
+          <button class="key num" data-num="6">6</button>
+          <button class="key op" data-op="-">&minus;</button>
+
+          <button class="key num" data-num="1">1</button>
+          <button class="key num" data-num="2">2</button>
+          <button class="key num" data-num="3">3</button>
+          <button class="key op" data-op="+">+</button>
+
+          <button class="key fn" data-action="percent">%</button>
+          <button class="key num" data-num="0">0</button>
+          <button class="key num" data-num=".">.</button>
+          <button class="key equals" data-action="equals">=</button>
+        </div>
+      </section>
+
+      <!-- SCIENTIFIC -->
+      <section class="panel" id="panel-scientific">
+        <div class="display">
+          <div class="display-expr" id="sci-expr"></div>
+          <div class="display-main" id="sci-display">0</div>
+          <div class="mode-toggle">
+            <label><input type="radio" name="angle" value="deg" checked /> DEG</label>
+            <label><input type="radio" name="angle" value="rad" /> RAD</label>
+          </div>
+        </div>
+        <div class="keys keys-scientific">
+          <button class="key fn" data-sci="sin">sin</button>
+          <button class="key fn" data-sci="cos">cos</button>
+          <button class="key fn" data-sci="tan">tan</button>
+          <button class="key fn" data-sci="log">log</button>
+          <button class="key fn" data-sci="ln">ln</button>
+
+          <button class="key fn" data-sci="asin">sin&#8315;&#185;</button>
+          <button class="key fn" data-sci="acos">cos&#8315;&#185;</button>
+          <button class="key fn" data-sci="atan">tan&#8315;&#185;</button>
+          <button class="key fn" data-sci="exp">e^x</button>
+          <button class="key fn" data-sci="pow10">10^x</button>
+
+          <button class="key fn" data-sci="sqrt">&radic;</button>
+          <button class="key fn" data-sci="square">x&sup2;</button>
+          <button class="key fn" data-sci="pow">x^y</button>
+          <button class="key fn" data-sci="fact">x!</button>
+          <button class="key fn" data-sci="inv">1/x</button>
+
+          <button class="key fn" data-sci="pi">&pi;</button>
+          <button class="key fn" data-sci="e">e</button>
+          <button class="key fn" data-sci="lparen">(</button>
+          <button class="key fn" data-sci="rparen">)</button>
+          <button class="key fn" data-sci="abs">|x|</button>
+
+          <button class="key op" data-action="clear">C</button>
+          <button class="key op" data-action="back">&#9003;</button>
+          <button class="key op" data-op="/">&divide;</button>
+          <button class="key op" data-op="*">&times;</button>
+          <button class="key op" data-op="-">&minus;</button>
+
+          <button class="key num" data-num="7">7</button>
+          <button class="key num" data-num="8">8</button>
+          <button class="key num" data-num="9">9</button>
+          <button class="key num" data-num=".">.</button>
+          <button class="key op" data-op="+">+</button>
+
+          <button class="key num" data-num="4">4</button>
+          <button class="key num" data-num="5">5</button>
+          <button class="key num" data-num="6">6</button>
+          <button class="key num" data-num="1">1</button>
+          <button class="key num" data-num="2">2</button>
+
+          <button class="key num" data-num="3">3</button>
+          <button class="key num" data-num="0">0</button>
+          <button class="key num neg" data-sci="neg">&#177;</button>
+          <button class="key equals span2" data-action="equals">=</button>
+        </div>
+      </section>
+
+      <!-- UNIT CONVERSION -->
+      <section class="panel" id="panel-unit">
+        <div class="conv-card">
+          <div class="conv-header">
+            <label>Category</label>
+            <select id="unit-category">
+              <option value="length">Length</option>
+              <option value="weight">Weight / Mass</option>
+              <option value="temperature">Temperature</option>
+              <option value="volume">Volume</option>
+              <option value="area">Area</option>
+              <option value="speed">Speed</option>
+              <option value="time">Time</option>
+            </select>
+          </div>
+          <div class="conv-row">
+            <div class="conv-side">
+              <input type="number" id="unit-from-val" value="1" />
+              <select id="unit-from"></select>
+            </div>
+            <div class="conv-arrow">&rarr;</div>
+            <div class="conv-side">
+              <input type="number" id="unit-to-val" readonly />
+              <select id="unit-to"></select>
+            </div>
+          </div>
+          <button class="swap-btn" id="unit-swap">&#8645; Swap</button>
+        </div>
+      </section>
+
+      <!-- CURRENCY -->
+      <section class="panel" id="panel-currency">
+        <div class="conv-card">
+          <div class="conv-header">
+            <label>Currency Conversion</label>
+            <button class="refresh-btn" id="cur-refresh">Refresh rates</button>
+          </div>
+          <div class="conv-row">
+            <div class="conv-side">
+              <input type="number" id="cur-from-val" value="1" />
+              <select id="cur-from"></select>
+            </div>
+            <div class="conv-arrow">&rarr;</div>
+            <div class="conv-side">
+              <input type="number" id="cur-to-val" readonly />
+              <select id="cur-to"></select>
+            </div>
+          </div>
+          <button class="swap-btn" id="cur-swap">&#8645; Swap</button>
+          <div class="conv-meta" id="cur-meta">Loading rates&hellip;</div>
+        </div>
+      </section>
+
+      <!-- PROGRAMMER -->
+      <section class="panel" id="panel-programmer">
+        <div class="prog-display">
+          <div class="prog-row"><span class="prog-label">DEC</span><span class="prog-val" id="prog-dec">0</span></div>
+          <div class="prog-row"><span class="prog-label">HEX</span><span class="prog-val" id="prog-hex">0</span></div>
+          <div class="prog-row"><span class="prog-label">OCT</span><span class="prog-val" id="prog-oct">0</span></div>
+          <div class="prog-row"><span class="prog-label">BIN</span><span class="prog-val mono" id="prog-bin">0</span></div>
+        </div>
+        <div class="prog-base-select">
+          <button class="base-btn active" data-base="10">DEC</button>
+          <button class="base-btn" data-base="16">HEX</button>
+          <button class="base-btn" data-base="8">OCT</button>
+          <button class="base-btn" data-base="2">BIN</button>
+        </div>
+        <div class="keys keys-programmer">
+          <button class="key fn" data-pop="and">AND</button>
+          <button class="key fn" data-pop="or">OR</button>
+          <button class="key fn" data-pop="xor">XOR</button>
+          <button class="key fn" data-pop="not">NOT</button>
+          <button class="key fn" data-pop="lsh">&lt;&lt;</button>
+          <button class="key fn" data-pop="rsh">&gt;&gt;</button>
+
+          <button class="key phex" data-pnum="A">A</button>
+          <button class="key phex" data-pnum="B">B</button>
+          <button class="key phex" data-pnum="C">C</button>
+          <button class="key phex" data-pnum="D">D</button>
+          <button class="key phex" data-pnum="E">E</button>
+          <button class="key phex" data-pnum="F">F</button>
+
+          <button class="key num" data-pnum="7">7</button>
+          <button class="key num" data-pnum="8">8</button>
+          <button class="key num" data-pnum="9">9</button>
+          <button class="key op" data-pop="/">&divide;</button>
+          <button class="key op" data-pop="*">&times;</button>
+          <button class="key op" data-action="prog-clear">C</button>
+
+          <button class="key num" data-pnum="4">4</button>
+          <button class="key num" data-pnum="5">5</button>
+          <button class="key num" data-pnum="6">6</button>
+          <button class="key op" data-pop="-">&minus;</button>
+          <button class="key op" data-pop="+">+</button>
+          <button class="key op" data-action="prog-back">&#9003;</button>
+
+          <button class="key num" data-pnum="1">1</button>
+          <button class="key num" data-pnum="2">2</button>
+          <button class="key num" data-pnum="3">3</button>
+          <button class="key num" data-pnum="0">0</button>
+          <button class="key equals span2" data-action="prog-equals">=</button>
+        </div>
+      </section>
+
+      <!-- DATE / TIME -->
+      <section class="panel" id="panel-datetime">
+        <div class="dt-card">
+          <h3>Difference between two dates</h3>
+          <div class="dt-row">
+            <label>From <input type="date" id="dt-from" /></label>
+            <label>To <input type="date" id="dt-to" /></label>
+          </div>
+          <div class="dt-result" id="dt-diff-result">&mdash;</div>
+        </div>
+        <div class="dt-card">
+          <h3>Add / subtract days</h3>
+          <div class="dt-row">
+            <label>Start <input type="date" id="dt-start" /></label>
+            <label>Days <input type="number" id="dt-days" value="0" /></label>
+            <label>Op
+              <select id="dt-op">
+                <option value="add">Add</option>
+                <option value="sub">Subtract</option>
+              </select>
+            </label>
+          </div>
+          <div class="dt-result" id="dt-addsub-result">&mdash;</div>
+        </div>
+        <div class="dt-card">
+          <h3>Age calculator</h3>
+          <div class="dt-row">
+            <label>Date of birth <input type="date" id="dt-dob" /></label>
+          </div>
+          <div class="dt-result" id="dt-age-result">&mdash;</div>
+        </div>
+      </section>
+      </main>
+
+      <footer class="device-footer">
+        <div class="speaker-grille"></div>
+        <div class="footer-text">
+          <div class="credit-line">&#9733; CREDIT 01 &#9733;</div>
+          <div class="hint">PRESS <kbd>?</kbd> FOR HELP</div>
+        </div>
+        <div class="speaker-grille"></div>
+      </footer>
+    </div>
+  </div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
